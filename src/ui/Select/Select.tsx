@@ -1,7 +1,7 @@
 import styles from './Select.module.css';
 import type { ISelect } from './types';
 
-function Select({ label, options, onChange }: ISelect) {
+function Select({ label, options, value, onChange }: ISelect) {
   return (
     <div className={styles.selectWrapper}>
       {label && <label className={styles.label}>{label}</label>}
@@ -9,6 +9,7 @@ function Select({ label, options, onChange }: ISelect) {
         <select 
           className={styles.select}
           onChange={onChange}
+          value={value}
         >
           {options.map((option, index) => (
             <option key={index} value={option} className={styles.option}>

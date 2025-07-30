@@ -31,8 +31,14 @@ function Filters() {
     <div className={styles.container}>
       <Search />
       <div className={styles.selects}>
-        {optionsSelects.map((select, index) => (
-          <Select key={index} label={select.label} options={select.options} onChange={handleChangeSelect} />
+        {optionsSelects.map((selectOption, index) => (
+          <Select
+            key={index}
+            label={selectOption.label}
+            value={select}
+            options={selectOption.options}
+            onChange={handleChangeSelect}
+          />
         ))}
       </div>
       <div className={styles.buttons}>
