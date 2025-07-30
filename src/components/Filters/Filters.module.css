@@ -1,57 +1,81 @@
 .container {
   width: 100%;
   max-width: 1200px;
-  height: 250px;
-  box-shadow: var(--shadow);
   background: white;
   border-radius: 15px;
-  padding: 25px;
+  padding: 20px;
   margin: 0 auto;
+  box-shadow: var(--shadow);
 }
 
 .selects {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
+}
+
+.buttonApply, .buttonReset {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
 .buttonApply {
   background: var(--success-color);
   color: white;
-  border: none;
-  padding: 14px 30px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: 0.3s ease;
 }
 
 .buttonReset {
   background: #f0f0f0;
   color: var(--dark-text);
-  border: none;
-  padding: 14px 30px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: 0.3s ease;
 }
 
 .buttonApply:hover {
   background: #269440;
+  transform: translateY(-2px);
 }
 
 .buttonReset:hover {
   background: #e0e0e0;
+  transform: translateY(-2px);
 }
 
-@media (min-width: 1200px) {
+/* Адаптация для планшетов */
+@media (max-width: 900px) {
+  .selects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 600px) {
   .container {
-    width: 1200px;
+    padding: 15px;
+  }
+  
+  .selects {
+    grid-template-columns: 1fr;
+  }
+  
+  .buttons {
+    flex-direction: column;
+  }
+  
+  .buttonApply, .buttonReset {
+    width: 100%;
   }
 }
