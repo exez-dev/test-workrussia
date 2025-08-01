@@ -1,0 +1,51 @@
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  margin-top: 30px;
+}
+
+.backBlock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2a5298;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.backBlock img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.backBlock img:hover {
+  width: 25px;
+  height: 25px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.meta {
+  display: flex;
+  gap: 15px;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.content {
+  line-height: 1.8;
+}
+

@@ -1,17 +1,9 @@
-import Filters from "../components/Filters/Filters";
-import Header from "../components/Header/Header";
-import Layout from "../components/Layout/Layout";
-import VacanciesList from "../components/VacanciesList/VacanciesList";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
 function App() {
   return (
-    <Layout>
-      <Header />
-      <main>
-        <Filters />
-        <VacanciesList />
-      </main>
-    </Layout>
+    <RouterProvider router={router}/>
   );
 }
 
