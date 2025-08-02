@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "src": "/admin",
+      "dest": "/index.html",
+      "status": 200
+    },
+    {
+      "src": "/paper/.*",
+      "dest": "/index.html",
+      "status": 200
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 200
+    }
+  ]
+}
