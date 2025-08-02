@@ -15,7 +15,7 @@ function PaperDesc() {
     async function fetchPaperDesc() {
       try {
         setIsLoading(true);
-        const response = await fetch("https://sheetdb.io/api/v1/9rfiyei9q87ih");
+        const response = await fetch(import.meta.env.VITE_API_BASE_URL);
 
         if (!response.ok) {
           throw new Error("Ошибка запроса!");

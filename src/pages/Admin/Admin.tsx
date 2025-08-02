@@ -9,7 +9,7 @@ const Admin = () => {
     text: "",
     author: "Администратор",
   });
-  const [deleteId, setDeleteId] = useState(""); // Состояние для ID удаляемой статьи
+  const [deleteId, setDeleteId] = useState("");
 
   const formatDate = (date: Date) => {
     const options: Intl.DateTimeFormatOptions = {
@@ -34,7 +34,7 @@ const Admin = () => {
     };
 
     try {
-      const response = await fetch("https://sheetdb.io/api/v1/9rfiyei9q87ih", {
+      const response = await fetch(import.meta.env.VITE_API_BASE_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,6 @@ const Admin = () => {
     }
   };
 
-  // Функция для удаления статьи по ID
   const handleDelete = async () => {
     if (!deleteId.trim()) {
       alert("Пожалуйста, введите ID статьи");
@@ -73,7 +72,7 @@ const Admin = () => {
     }
 
     try {
-      const response = await fetch(`https://sheetdb.io/api/v1/9rfiyei9q87ih/id/${deleteId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/id/${deleteId}`, {
         method: "DELETE",
       });
 
@@ -93,7 +92,6 @@ const Admin = () => {
   return (
     <div className={styles.adminContainer}>
       <h1>Панель администратора</h1>
-
       <div className={styles.section}>
         <h2>Добавить новую статью</h2>
         <form onSubmit={handleSubmit} className={styles.articleForm}>
@@ -106,7 +104,6 @@ const Admin = () => {
               required
             />
           </div>
-
           <div className={styles.formGroup}>
             <label>Город:</label>
             <input
@@ -116,7 +113,6 @@ const Admin = () => {
               required
             />
           </div>
-
           <div className={styles.formGroup}>
             <label>Краткое описание:</label>
             <textarea
@@ -127,7 +123,6 @@ const Admin = () => {
               rows={4}
             />
           </div>
-
           <div className={styles.formGroup}>
             <label>Полный текст:</label>
             <textarea
@@ -138,13 +133,11 @@ const Admin = () => {
               rows={8}
             />
           </div>
-
           <button type="submit" className={styles.submitButton}>
             Опубликовать статью
           </button>
         </form>
       </div>
-
       <div className={styles.section}>
         <h2>Удалить статью</h2>
         <div className={styles.deleteForm}>
